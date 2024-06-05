@@ -1,8 +1,8 @@
 import pytest
 import requests
 import allure
-import urls
 import data
+import urls
 from helpers import Delivery
 
 
@@ -17,7 +17,7 @@ class TestCreateCourier:
     @allure.title('Создание двух одинаковых курьеров')
     def test_create_courier_double(self):
         payload = Delivery.generation_data_for_registration()
-        response_1 = requests.post(f'{urls.CREATE_COURIER}', data=payload)
+        requests.post(f'{urls.CREATE_COURIER}', data=payload)
         response_2 = requests.post(f'{urls.CREATE_COURIER}', data=payload)
         assert response_2.status_code == 409 and response_2.json()['message'] == data.ErrorMessage.LOGIN_IS_BUSY
 

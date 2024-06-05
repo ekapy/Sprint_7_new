@@ -1,9 +1,8 @@
 import pytest
 import requests
 import allure
-import urls
 import data
-
+import urls
 
 class TestAuthCourier:
     @allure.title('Авторизация курьера и проверка id')
